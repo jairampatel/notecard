@@ -1,1 +1,60 @@
-<h1>Notecard: Home</h1>
+<script>
+	var notes;
+
+	function setNotes(n){
+		notes = n;
+	}
+	function getNotes(){
+		return notes;
+	}
+	function toggleTextArea(){
+		var item = document.getElementById('notes').style.display;
+		if(item == "none"){
+			document.getElementById('notes').style.display = "block";
+		}
+		else{
+			document.getElementById('notes').style.display = "none";
+		}
+	}
+	function toggleCards(){
+		var cards = document.getElementById('cards');
+		cards.toggleClass('hidden');
+	}
+	function showFlashcards(){
+		toggleCards();
+	}
+	function makeFlashcards(){
+		var item = document.getElementById('notes');
+		var notes = item.value;
+		setNotes(item.value);
+		toggleTextArea();
+		showFlashcards();
+	}
+</script><h1>Notecard</h1>
+<div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Example</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        	<li>Silver - shiny, not as good as gold</li>
+        	<li>George Washington - first President of US</li>
+        	<li>Whale - mammal</li>
+        </ul>
+      </div>
+    </div>
+<button class="btn btn-primary" onclick="makeFlashcards()">Convert to flash cards</button>
+</br>
+</br>
+<textarea id="notes" rows="50" cols="50">
+</textarea>
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				front
+			</div>
+			<div class="back">
+				back
+			</div>
+		</div>
+	</div>
