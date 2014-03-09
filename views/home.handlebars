@@ -1,5 +1,8 @@
 <script>
 	var notes;
+	var terms;
+	var definitions;
+	var index;
 
 	function setNotes(n){
 		notes = n;
@@ -10,7 +13,7 @@
 	function toggleTextArea(){
 		var item = document.getElementById('notes').style.display;
 		if(item == "none"){
-			document.getElementById('notes').style.display = "block";
+			document.getElementById('notes').style.display = "";
 		}
 		else{
 			document.getElementById('notes').style.display = "none";
@@ -20,15 +23,69 @@
 		var cards = document.getElementById('cards');
 		cards.toggleClass('hidden');
 	}
-	function showFlashcards(){
-		toggleCards();
-	}
-	function makeFlashcards(){
+	function flashcards(){
 		var item = document.getElementById('notes');
-		var notes = item.value;
 		setNotes(item.value);
 		toggleTextArea();
-		showFlashcards();
+		//toggleCards();
+		addNotesToFlashCards();
+	}
+	function initCards(){
+		terms = [];
+		definitions = [];
+		index = 0;
+	}
+	function setTerms(t){
+		terms = t;
+	}
+	function setDefinitions(d){
+		definitions = d;
+	}
+	function parseNotes(){
+		var n = getNotes();
+		var lines = n.split("\n");
+		for(var i =0;i < lines.length;i++){
+			var line = lines[i];
+			var pair = line.split("-");
+			terms.push(pair[0].trim());
+			definitions.push(pair[1].trim());
+		}
+	}
+	function randomize(){
+		var length = terms.length;
+		var indexes = [];
+		for(var i =0;i < length;i++){
+			indexes.push(i);
+		}
+		var t = [];
+		var d = [];
+		while(length > 0){
+			var randomNum = Math.floor(Math.random() * length);
+			t.push(terms[randomNum]);
+			d.push(definitions[randomNum]);
+			terms.splice(randomNum,1);
+			definitions.splice(randomNum,1);
+			length--;
+		}
+		setTerms(t);
+		setDefinitions(d);
+	}
+	function nextPair(){
+		if(index < terms.length){
+			var front = document.getElementById('front');
+			var back = document.getElementById('back');
+			front.innerHTML = terms[index];
+			back.innerHTML = definitions[index];
+			index++;
+		}
+		else{
+			//tell the user that it's done
+		}
+	}
+	function addNotesToFlashCards(){
+		initCards();
+		parseNotes();
+		randomize();
 	}
 </script><h1>Notecard</h1>
 <div class="panel panel-default">
@@ -43,18 +100,17 @@
         </ul>
       </div>
     </div>
-<button class="btn btn-primary" onclick="makeFlashcards()">Convert to flash cards</button>
+<button class="btn btn-primary" onclick="flashcards()">Convert to flash cards</button>
 </br>
 </br>
 <textarea id="notes" rows="50" cols="50">
 </textarea>
-<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-		<div class="flipper">
-			<div class="front">
-				front
-			</div>
-			<div class="back">
-				back
-			</div>
+<button class="btn btn-primary" onclick="nextPair()">Next</button>
+<div id="cards" class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	<div class="flipper">
+		<div id="front" class="front">
+		</div>
+		<div id="back" class="back">
 		</div>
 	</div>
+</div>
