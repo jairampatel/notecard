@@ -37,6 +37,7 @@
 	function toggleButtons(){
 		$('#okButton').toggle();
 		$('#errorButton').toggle();
+		$('.controls').toggle();
 	}
 	function toggleElements(){
 		toggleTextArea();
@@ -148,5 +149,8 @@
 		</div>
 	</div>
 </div>
-<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
-<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
+
+<div class="controls">
+	<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
+	<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
+</div>

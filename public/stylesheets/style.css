@@ -21,8 +21,8 @@ a {
 
 	-ms-transform: perspective(1000px);
 	-moz-transform: perspective(1000px);
-		-moz-transform-style: preserve-3d; 
-		-ms-transform-style: preserve-3d; 
+	-moz-transform-style: preserve-3d; 
+	-ms-transform-style: preserve-3d; 
 
 	border: 1px solid #ccc;
 }
@@ -60,6 +60,7 @@ a {
 .flip-container, .front, .back {
 	width: 600px;
 	height: 227px;
+	margin: auto;
 }
 
 .flipper {
@@ -232,6 +233,7 @@ a {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
+  font-size: 2em;
 }
 
 .btn-custom-error {
@@ -250,4 +252,19 @@ a {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
+  font-size: 2em;
+}
+
+.controls {
+	border: 1px solid #ccc;
+	border-color: #9f0404 #9f0404 hsl(0, 95%, 32%);
+	border-radius: 2px;
+	padding: 10px;
+	position: inherit;
+	margin: 5px;
+}
+.outer {
+	padding: 10px;
+	position: inherit;
+	margin: 5px;
 }
