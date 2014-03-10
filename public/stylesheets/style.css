@@ -58,8 +58,8 @@ a {
 		/* END: Accommodating for IE */
 
 		.flip-container, .front, .back {
-			width: 320px;
-			height: 427px;
+			width: 600px;
+			height: 227px;
 		}
 
 		.flipper {
