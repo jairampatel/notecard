@@ -3,37 +3,70 @@
 	var terms;
 	var definitions;
 	var index;
+	var showingCards;
 
+	$( document ).ready(function() {
+	  toggleButtons();
+	});
 	function setNotes(n){
 		notes = n;
 	}
 	function getNotes(){
 		return notes;
 	}
-	function toggleTextArea(){
-		var item = document.getElementById('notes').style.display;
+	function toggleHideElement(id){
+		var item = document.getElementById(id).style.display;
 		if(item == "none"){
-			document.getElementById('notes').style.display = "";
+			document.getElementById(id).style.display = "";
 		}
 		else{
-			document.getElementById('notes').style.display = "none";
+			document.getElementById(id).style.display = "none";
 		}
+	}
+	function toggleTextArea(){
+		toggleHideElement('notes');
 	}
 	function toggleCards(){
 		var cards = document.getElementById('cards');
 		cards.toggleClass('hidden');
 	}
-	function flashcards(){
-		var item = document.getElementById('notes');
-		setNotes(item.value);
+
+	function toggleExample(){
+		toggleHideElement('example');
+	}
+	function toggleButtons(){
+		$('#okButton').toggle();
+		$('#errorButton').toggle();
+	}
+	function toggleElements(){
 		toggleTextArea();
+		toggleExample();
+		toggleButtons();
+	}
+	function flashcards(){
+		var button = document.getElementById("flashCardButton");
+		toggleElements();
 		//toggleCards();
-		addNotesToFlashCards();
+		if(!showingCards){
+			$('#flashCardButton').text = "convert";
+			
+
+			var item = document.getElementById('notes');
+
+			setNotes(item.value);
+			addNotesToFlashCards();
+			showingCards = true;
+		}
+		else{
+			$('#flashCardButton').text = "Show notes";
+			showingCards = false;
+		}
 	}
 	function initCards(){
 		terms = [];
 		definitions = [];
 		index = 0;
+		showingCards = false;
 	}
 	function setTerms(t){
 		terms = t;
@@ -79,7 +112,7 @@
 			index++;
 		}
 		else{
-			//tell the user that it's done
+			//tell the user that the flashcards are done
 		}
 	}
 	function addNotesToFlashCards(){
@@ -89,7 +122,7 @@
 		nextPair();
 	}
 </script><h1>Notecard</h1>
-<div class="panel panel-default">
+<div id="example" class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Example</h3>
       </div>
@@ -101,12 +134,13 @@
         </ul>
       </div>
     </div>
-<button class="btn btn-primary" onclick="flashcards()">Convert to flash cards</button>
+<button id="flashCardButton" class="btn btn-primary" onclick="flashcards()">Convert to flash cards</button>
 </br>
 </br>
 <textarea id="notes" rows="50" cols="50">
 </textarea>
-<button class="btn btn-primary" onclick="nextPair()">Next</button>
+<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
+<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
 <div id="cards" class="flip-container" ontouchstart="this.classList.toggle('hover');">
 	<div class="flipper">
 		<div id="front" class="front">
