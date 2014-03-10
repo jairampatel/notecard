@@ -153,14 +153,23 @@ a {
 			font-family: Courier;
 			font-size: 2em;
 		}
-
-		.back p {
+		.front p{
 			position: absolute;
-			bottom: 40px;
+			bottom: 50%;
 			left: 0;
 			right: 0;
 			text-align: center;
 			padding: 0 20px;
+			font-size: 2em
+		}
+		.back p {
+			position: absolute;
+			bottom: 50%;
+			left: 0;
+			right: 0;
+			text-align: center;
+			padding: 0 20px;
+			font-size: 2em
 		}
 
 		/* vertical */

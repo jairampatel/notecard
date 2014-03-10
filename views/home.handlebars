@@ -74,8 +74,8 @@
 		if(index < terms.length){
 			var front = document.getElementById('front');
 			var back = document.getElementById('back');
-			front.innerHTML = terms[index];
-			back.innerHTML = definitions[index];
+			front.innerHTML = "<p>" + terms[index] + "</p>";
+			back.innerHTML = "<p>" + definitions[index] + "</p>";
 			index++;
 		}
 		else{
