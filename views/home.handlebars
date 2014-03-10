@@ -135,22 +135,23 @@
         </ul>
       </div>
     </div>
-<button id="flashCardButton" class="btn btn-primary" onclick="flashcards()">Convert to flash cards</button>
-</br>
-</br>
-<textarea id="notes" rows="50" cols="50">
-</textarea>
 
-<div id="cards" class="flip-container" ontouchstart="this.classList.toggle('hover');">
-	<div class="flipper">
-		<div id="front" class="front">
-		</div>
-		<div id="back" class="back">
+	<button id="flashCardButton" class="btn btn-primary" onclick="flashcards()">Convert to flash cards</button>
+	</br>
+	</br>
+	<textarea id="notes" rows="50" cols="50">
+	</textarea>
+<div class="controls">
+	<div id="cards" class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div id="front" class="front">
+			</div>
+			<div id="back" class="back">
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="controls">
+
 	<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
 	<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
 </div>

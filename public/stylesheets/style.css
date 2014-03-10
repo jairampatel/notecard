@@ -233,7 +233,8 @@ a {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
-  font-size: 2em;
+  font-size: 3em;
+  padding: 2px;
 }
 
 .btn-custom-error {
@@ -252,18 +253,14 @@ a {
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
-  font-size: 2em;
+  font-size: 3em;
+  padding: 2px;
 }
 
 .controls {
 	border: 1px solid #ccc;
 	border-color: #9f0404 #9f0404 hsl(0, 95%, 32%);
 	border-radius: 2px;
-	padding: 10px;
-	position: inherit;
-	margin: 5px;
-}
-.outer {
 	padding: 10px;
 	position: inherit;
 	margin: 5px;
