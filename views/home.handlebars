@@ -7,6 +7,7 @@
 
 	$( document ).ready(function() {
 	  toggleButtons();
+	  toggleCards();
 	});
 	function setNotes(n){
 		notes = n;
@@ -27,8 +28,7 @@
 		toggleHideElement('notes');
 	}
 	function toggleCards(){
-		var cards = document.getElementById('cards');
-		cards.toggleClass('hidden');
+		toggleHideElement('cards');
 	}
 
 	function toggleExample(){
@@ -46,9 +46,9 @@
 	function flashcards(){
 		var button = document.getElementById("flashCardButton");
 		toggleElements();
-		//toggleCards();
+		toggleCards();
 		if(!showingCards){
-			$('#flashCardButton').text = "convert";
+			$('#flashCardButton').text("Show notes");
 			
 
 			var item = document.getElementById('notes');
@@ -58,7 +58,7 @@
 			showingCards = true;
 		}
 		else{
-			$('#flashCardButton').text = "Show notes";
+			$('#flashCardButton').text("Convert to flash cards");
 			showingCards = false;
 		}
 	}
@@ -139,8 +139,7 @@
 </br>
 <textarea id="notes" rows="50" cols="50">
 </textarea>
-<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
-<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
+
 <div id="cards" class="flip-container" ontouchstart="this.classList.toggle('hover');">
 	<div class="flipper">
 		<div id="front" class="front">
@@ -149,3 +148,5 @@
 		</div>
 	</div>
 </div>
+<button id="okButton" class="btn btn-custom-ok" onclick="nextPair()">Got it</button>
+<button id="errorButton" class="btn btn-custom-error" onclick="reuse()">Had some trouble</button>
