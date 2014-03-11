@@ -1,3 +1,4 @@
+git add -f newrelic.js
 git add .
 $argsList = "";
 for($i = 0;$i -lt $args.count;$i++){
@@ -13,7 +14,7 @@ else{
     git commit -m $($argsList)
 }
 
-git add -f newrelic.js
+
 git push heroku master
 git rm --cached .\newrelic.js
 git add .
