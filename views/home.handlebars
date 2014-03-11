@@ -86,7 +86,9 @@
 					terms.push(pair[0].trim());
 					var def = '';
 					for(var j = 1;j < pair.length;j++){
-						def += pair[j] + '-';
+						def += pair[j];
+						if(j != pair.length - 1)
+							def += '-';
 					}
 					definitions.push(def);
 				}
