@@ -13,8 +13,8 @@ else{
     git commit -m $($argsList)
 }
 
-git push heroku master -and
-git rm --cached .\newrelic.js -and
+git push heroku master
+git rm --cached .\newrelic.js
 git push origin master
 
 
