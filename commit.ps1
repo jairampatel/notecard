@@ -13,8 +13,16 @@ else{
     git commit -m $($argsList)
 }
 
+git add -f newrelic.js
 git push heroku master
 git rm --cached .\newrelic.js
+git add .
+if($argsList.Length -eq 0){
+    git commit -m "n/a";
+}
+else{
+    git commit -m $($argsList)
+}
 git push origin master
 
 
