@@ -10,7 +10,6 @@ var http = require('http');
 var path = require('path');
 var exphbs = require('express3-handlebars');
 
-
 var app = express();
 
 // all environments
