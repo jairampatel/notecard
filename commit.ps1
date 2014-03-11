@@ -12,9 +12,11 @@ if($argsList.Length -eq 0){
 else{
     git commit -m $($argsList)
 }
+
+git push heroku master -and
+git rm --cached .\newrelic.js -and
 git push origin master
-git rm --cached .\newrelic.js
-git push heroku master
+
 
 
 (new-object Media.SoundPlayer "C:\WINDOWS\Media\notify.wav").play();
