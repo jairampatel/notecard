@@ -6,27 +6,9 @@ var showingCards;
 $( document ).ready(function() {
   toggleButtons();
   toggleCards();
-  //$('.my-glyph').tooltip();
   var $btn2 = $('#btn2');
 
-    var enterShow = function() {
-        $btn2.popover('show');
-    };
-
-    var exitHide = function() {
-        $btn2.popover('hide');
-    }
-
-    $btn2.popover({trigger: 'manual'})
-            .on('mouseenter', enterShow)
-            .on('mouseleave', exitHide)
-            .one('click', function() {
-                $btn2.off('mouseenter', enterShow)
-                        .off('mouseleave', exitHide)
-                        .on('click', function() {
-                            $btn2.popover('toggle');
-                        });
-            });
+	$btn2.popover({trigger: 'hover', html: true});
 
 });
 function setNotes(n){
@@ -51,9 +33,6 @@ function toggleCards(){
 	toggleHideElement('cards');
 }
 
-function toggleExample(){
-	toggleHideElement('example');
-}
 function toggleButtons(){
 	$('#okButton').toggle();
 	$('#errorButton').toggle();
@@ -61,7 +40,6 @@ function toggleButtons(){
 }
 function toggleElements(){
 	toggleTextArea();
-	toggleExample();
 	toggleButtons();
 }
 function flashcards(){
