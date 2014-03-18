@@ -273,3 +273,12 @@ a {
 	position: inherit;
 	margin: 5px;
 }
+
+textarea::-webkit-input-placeholder {
+    position: relative;
+    font-size: 20px;
+    font-style: italic;
+    color: #ABABAB;    
+    line-height:300px;
+    text-align: center;
+}
