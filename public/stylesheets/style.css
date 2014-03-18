@@ -274,6 +274,23 @@ a {
 	margin: 5px;
 }
 
+textarea{
+	text-align: center;
+}
+
+textarea:focus {text-align: center;}
+textarea:not(:invalid) {text-align: center;}
+textarea:invalid {box-shadow: none;}
+textarea:focus::-moz-placeholder {opacity: 0;}
+
+textarea::-moz-placeholder {
+    position: relative;
+    font-size: 20px;
+    font-style: italic;
+    color: #ABABAB;    
+    line-height:300px;    
+}
+
 textarea::-webkit-input-placeholder {
     position: relative;
     font-size: 20px;
