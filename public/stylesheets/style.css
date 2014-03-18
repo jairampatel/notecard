@@ -278,8 +278,8 @@ textarea{
 	text-align: center;
 }
 
-textarea:focus {text-align: center;}
-textarea:not(:invalid) {text-align: center;}
+textarea:focus {text-align: left;}
+textarea:not(:invalid) {text-align: left;}
 textarea:invalid {box-shadow: none;}
 textarea:focus::-moz-placeholder {opacity: 0;}
 
@@ -289,6 +289,7 @@ textarea::-moz-placeholder {
     font-style: italic;
     color: #ABABAB;    
     line-height:300px;    
+    text-align: center;
 }
 
 textarea::-webkit-input-placeholder {
