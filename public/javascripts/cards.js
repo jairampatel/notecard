@@ -80,7 +80,7 @@ function parseNotes(){
 		var line = lines[i];
 		if(line.trim().length > 0){
 			var pair = line.split("-");
-			if(pair && pair.length > 1){
+			if(pair && pair.length > 1 && line.indexOf("-") > 0){
 				terms.push(pair[0].trim());
 				var def = '';
 				for(var j = 1;j < pair.length;j++){
@@ -91,6 +91,10 @@ function parseNotes(){
 				definitions.push(def);
 			}
 		}
+	}
+	if(terms.length == 0){
+		terms.push("Separate your notes with dashes");
+		definitions.push("term - definition");
 	}
 }
 function randomize(){
