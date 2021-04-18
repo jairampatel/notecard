@@ -141,6 +141,7 @@ function gotIt(){
 	}
 	else{
 		//tell the user that the flashcards are done
+		flashcards();
 	}
 }
 function hadTrouble(){
